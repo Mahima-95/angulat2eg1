@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <app-root>Loading....</app-root>
+    <!-- Polyfills for older browsers -->
+    <script src="https://unpkg.com/core-js/client/shim.min.js"></script>
+    <script src="https://unpkg.com/zone.js@0.7.4?main=browser"></script>
+    <script src="https://unpkg.com/reflect-metadata@0.1.8"></script>
+    <script src="https://unpkg.com/systemjs@0.19.39/dist/system.src.js"></script>
+    <script src="./systemjs.config.js"></script>
+    <script>
+        System.import('app').catch(function(err){ console.error(err); });
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.2/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.2/firebase-messaging.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyA04wS6xdnAJU7FAysiWDC6ypmXZqZ5adI",
+            authDomain: "skilled-orbit-662.firebaseapp.com",
+            databaseURL: "https://skilled-orbit-662.firebaseio.com",
+            storageBucket: "skilled-orbit-662.appspot.com",
+            messagingSenderId: "540973004435"
+        };
+        firebase.initializeApp(config);
+        var root = firebase.database().ref();
+        root.on('value',function (snap) {
+            console.log(snap.val());
+        });
+        
+    </script>
+
+</head>
+<body>
+TopMenu, Logo
+<customer-ui></customer-ui>
+</body>
+</html>
